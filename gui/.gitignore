@@ -1,1 +1,5 @@
 g2
+venv
+build
+dist
+__pycache__

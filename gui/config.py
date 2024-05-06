@@ -2,8 +2,8 @@ import os
 
 CONFIG_PATH = "config.def"
 
-if not os.path.exists(CONFIG_PATH):
-    CONFIG_PATH = "../" + CONFIG_PATH
+# if not os.path.exists(CONFIG_PATH):
+#     CONFIG_PATH = "../" + CONFIG_PATH
 
 with open(os.path.join(os.path.dirname(__file__), CONFIG_PATH)) as config_file:
     for line in config_file:

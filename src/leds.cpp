@@ -41,18 +41,29 @@ void blank_led() {
     for (uint8_t i = 0; i < len(button_rgb_leds); i++) button_rgb_leds[i] = CRGB(0, 0, 0);
 }
 
+// Broken LED code
+
+// void render_led_shoot_start(int8_t shoot, CHSV colour) {
+//     if (shoot > 0) {
+//         if (shoot > PinConf::start_rgb_count)
+//             start_rgb_l_leds[shoot - PinConf::start_rgb_count - 1] = colour;
+//         else
+//             start_rgb_r_leds[PinConf::start_rgb_count - shoot] = colour;
+//     }
+//     if (shoot < 0) {
+//         if (shoot < -PinConf::start_rgb_count)
+//             start_rgb_r_leds[-shoot - PinConf::start_rgb_count - 1] = colour;
+//         else
+//             start_rgb_l_leds[PinConf::start_rgb_count + shoot] = colour;
+//     }
+// }
+
 void render_led_shoot_start(int8_t shoot, CHSV colour) {
     if (shoot > 0) {
-        if (shoot > PinConf::start_rgb_count)
-            start_rgb_l_leds[shoot - PinConf::start_rgb_count - 1] = colour;
-        else
-            start_rgb_r_leds[PinConf::start_rgb_count - shoot] = colour;
+        start_rgb_r_leds[PinConf::start_rgb_count - shoot] = colour;     
     }
     if (shoot < 0) {
-        if (shoot < -PinConf::start_rgb_count)
-            start_rgb_r_leds[-shoot - PinConf::start_rgb_count - 1] = colour;
-        else
-            start_rgb_l_leds[PinConf::start_rgb_count + shoot] = colour;
+        start_rgb_r_leds[-shoot - PinConf::start_rgb_count - 1] = colour;
     }
 }
 
